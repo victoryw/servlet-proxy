@@ -25,6 +25,7 @@ dependencies {
     implementation("com.google.guava:guava:28.0-jre")
     implementation("com.squareup.okhttp3:okhttp:3.13.1");
     implementation("javax.servlet:javax.servlet-api:4.0.1")
+    implementation("commons-io:commons-io:2.6")
 
 
     // Use JUnit Jupiter API for testing.

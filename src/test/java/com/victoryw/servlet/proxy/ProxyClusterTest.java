@@ -22,7 +22,7 @@ class ProxyClusterTest {
     void should_use_proxy_when_proxy_can_deal_the_request() throws IOException {
         HttpProxy mockProxy = mock(HttpProxy.class);
         when(mockProxy.canProxy(any(HttpServletRequest.class))).thenReturn(true);
-        ProxyCluster cluster = new ProxyCluster(ImmutableList.of(mockProxy));
+        ProxyCluster cluster = new ProxyCluster(mockProxy);
 
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
@@ -36,7 +36,7 @@ class ProxyClusterTest {
         when(mockProxy.canProxy(any(HttpServletRequest.class))).thenReturn(true);
 
         HttpProxy mockProxy2 = mock(HttpProxy.class);
-        ProxyCluster cluster = new ProxyCluster(ImmutableList.of(mockProxy, mockProxy2));
+        ProxyCluster cluster = new ProxyCluster(mockProxy, mockProxy2);
 
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
@@ -54,7 +54,7 @@ class ProxyClusterTest {
 
         HttpProxy mockProxy2 = mock(HttpProxy.class);
         when(mockProxy2.canProxy(any(HttpServletRequest.class))).thenReturn(true);
-        ProxyCluster cluster = new ProxyCluster(ImmutableList.of(mockProxy1, mockProxy2));
+        ProxyCluster cluster = new ProxyCluster(mockProxy1, mockProxy2);
 
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
@@ -66,7 +66,7 @@ class ProxyClusterTest {
     void should_throw_no_exception_when_no_proxy_can_deal_the_request() {
         HttpProxy mockProxy = mock(HttpProxy.class);
         when(mockProxy.canProxy(any(HttpServletRequest.class))).thenReturn(false);
-        ProxyCluster cluster = new ProxyCluster(ImmutableList.of(mockProxy));
+        ProxyCluster cluster = new ProxyCluster(mockProxy);
 
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);

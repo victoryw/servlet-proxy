@@ -1,7 +1,8 @@
 package com.victoryw.servlet.proxy.http.proxies;
 
-import com.victoryw.servlet.proxy.transform.ProxyRequestTransformer;
-import com.victoryw.servlet.proxy.transform.ProxyResponseTransformer;
+import com.victoryw.servlet.proxy.handler.CanHandlerHttpRequest;
+import com.victoryw.servlet.proxy.transform.core.ProxyRequestTransformer;
+import com.victoryw.servlet.proxy.transform.core.ProxyResponseTransformer;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -28,7 +29,7 @@ public class HttpProxy {
     }
 
     public boolean canProxy(HttpServletRequest httpServletRequest) {
-        return canHandlerHttpRequest.can(httpServletRequest);
+        return canHandlerHttpRequest.canHandle(httpServletRequest);
     }
 
     public void Proxy(HttpServletRequest httpServletRequest,

@@ -1,4 +1,4 @@
-package com.victoryw.servlet.proxy.http.proxies;
+package com.victoryw.servlet.proxy.http.client;
 
 import okhttp3.OkHttpClient;
 
@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class OkHttpClientBuilder {
 
-    static OkHttpClient createOkHttpClient() {
+    public static OkHttpClient createOkHttpClient() {
         final OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(1000, TimeUnit.SECONDS)
                 .writeTimeout(1000, TimeUnit.SECONDS)

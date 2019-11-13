@@ -13,7 +13,7 @@ public class ProxyCluster {
 
     private final List<HttpProxy> proxies;
 
-    public ProxyCluster(List<HttpProxy> proxies) {
+    public ProxyCluster(HttpProxy... proxies) {
         this.proxies = ImmutableList.copyOf(proxies);
     }
 
