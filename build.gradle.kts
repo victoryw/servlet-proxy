@@ -23,10 +23,13 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation("com.google.guava:guava:28.0-jre")
+    implementation("com.squareup.okhttp3:okhttp:3.13.1");
+    implementation("javax.servlet:javax.servlet-api:4.0.1")
+
 
     // Use JUnit Jupiter API for testing.
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.2")
-
+    testImplementation("org.mockito:mockito-core:3.1.0")
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.4.2")
 }
